@@ -23,6 +23,10 @@ import Initial from "./pages/Initial/InitialScreen";
 import ProfLogin from "./pages/Login/ProfLoginScreen";
 import AlunoLogin from "./pages/Login/AlunoLoginScreen";
 import Home from "./pages/Home/HomeScreen";
+import HomeProf from "./pages/HomeProf/HomeScreen";
+import RaspadinhaScreen from "./pages/Raspadinha/RaspadinhaScreen";
+import NewRaspadinhaScreen from "./pages/NewRaspadinha/NewRaspadinhaScreen";
+import ListRaspadinhaScreen from "./pages/ListRaspadinha/ListRaspadinhaScreen";
 
 // style import
 import colors from "./styles/colors";
@@ -57,7 +61,13 @@ const CustomDrawer = props => (
 
 //Primeira tela do APP
 const FirstScreen = createStackNavigator(
-  { Initial, ProfLogin, AlunoLogin },
+  {
+    Initial,
+    ProfLogin,
+    AlunoLogin,
+    RaspadinhaScreen,
+    NewRaspadinhaScreen
+  },
   {
     navigationOptions: {
       drawerLabel: " Sair "
@@ -77,11 +87,35 @@ const HomeScreen = createStackNavigator(
   }
 );
 
+const HomeProfScreen = createStackNavigator(
+  {
+    HomeProf
+  },
+  {
+    navigationOptions: {
+      drawerLabel: " Home "
+    }
+  }
+);
+
+const MinhasRaspadinhas = createStackNavigator(
+  {
+    ListRaspadinhaScreen
+  },
+  {
+    navigationOptions: {
+      drawerLabel: " Minhas Raspadinhas "
+    }
+  }
+);
+
 //formação do drawer
 const MyDrawerNavigator = createDrawerNavigator(
   {
     FirstScreen,
-    HomeScreen
+    HomeScreen,
+    HomeProfScreen,
+    MinhasRaspadinhas
   },
   {
     initialRouteName: "FirstScreen",
